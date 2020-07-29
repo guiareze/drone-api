@@ -5,9 +5,9 @@ const options = {
     swaggerDefinition: {
       openapi: "3.0.0",
       info: {
-        title: "Super App Pet",
+        title: "Drone API",
         version: "1.0.0",
-        description:  "O Marketplace de Serviços e Produtos para Pets",
+        description:  "API para gerenciamento de drones",
         license: {
           name: "MIT",
           url: "https://choosealicense.com/licenses/mit/"

@@ -1,14 +1,14 @@
 const routes = require('express').Router()
-const UserController = require('./app/controllers/UserController')
+const DroneController = require('./app/controllers/DroneController')
 
 /**
  * @swagger
  * path:
- *  /users/:
+ *  /drones/:
  *    get:
  *      tags:
- *          - Users
- *      summary: Lista de Usuários
+ *          - Drones
+ *      summary: Lista de Drones
  *           
  *      responses:
  *        "200":
@@ -16,24 +16,24 @@ const UserController = require('./app/controllers/UserController')
  *          content:
  *            application/json:
  *              schema:
- *                  $ref: '#/components/schemas/User'
+ *                  $ref: '#/components/schemas/Drone'
  *               
  */
-routes.get('/users', UserController.index)
+routes.get('/drones', DroneController.index)
 
 /**
  * @swagger
  * path:
- *  /users/{id}:
+ *  /drones/{id}:
  *    get:
  *      tags:
- *          - Users
- *      summary: Usuário por Id (telefone)
+ *          - Drones
+ *      summary: Drone por Id
  * 
  *      parameters:
  *          - name: id
  *            in: path
- *            description: Id do Usuário
+ *            description: Id do Drone
  *            required: true
  *            schema:
  *              type: string
@@ -44,25 +44,25 @@ routes.get('/users', UserController.index)
  *          content:
  *            application/json:
  *              schema:
- *                  $ref: '#/components/schemas/User'
+ *                  $ref: '#/components/schemas/Drone'
  */
-routes.get('/users/:id',UserController.show);
+routes.get('/drones/:id',DroneController.show);
 
 /**
  * @swagger
  * path:
- *  /users/:
+ *  /drones/:
  *    post:
  *      tags:
- *          - Users
- *      summary: Adiciona um Usuário
+ *          - Drones
+ *      summary: Adiciona um Drone
  *
  *      requestBody:
  *          required: true
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/User'
+ *                      $ref: '#/components/schemas/Drone'
  *           
  *      responses:
  *        "200":
@@ -70,27 +70,27 @@ routes.get('/users/:id',UserController.show);
  *          content:
  *            application/json:
  *              schema:
- *                  $ref: '#/components/schemas/User'
+ *                  $ref: '#/components/schemas/Drone'
  *       
  *        "500":
  *          description: Erro        
  */
-routes.post('/users', UserController.store);
+routes.post('/drones', DroneController.store);
 
 /**
  * @swagger
  * path:
- *  /users/{id}:
+ *  /drones/{id}:
  *    put:
  *      tags:
- *          - Users
+ *          - Drones
  * 
- *      summary: Altera um Usuário
+ *      summary: Altera um Drone
  * 
  *      parameters:
  *          - name: id
  *            in: path
- *            description: Id do Usuário
+ *            description: Id do Drone
  *            required: true
  *            schema:
  *              type: string
@@ -100,7 +100,7 @@ routes.post('/users', UserController.store);
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/User'
+ *                      $ref: '#/components/schemas/Drone'
  *           
  *      responses:
  *        "200":
@@ -108,27 +108,27 @@ routes.post('/users', UserController.store);
  *          content:
  *            application/json:
  *              schema:
- *                  $ref: '#/components/schemas/User'
+ *                  $ref: '#/components/schemas/Drone'
  *       
  *        "500":
  *          description: Erro        
  */
-routes.put('/users/:id',UserController.update);
+routes.put('/drones/:id',DroneController.update);
 
 /**
  * @swagger
  * path:
- *  /users/{id}:
+ *  /drones/{id}:
  *    delete:
  *      tags:
- *          - Users
+ *          - Drones
  * 
- *      summary: Deleta um Usuário
+ *      summary: Deleta um Drone
  * 
  *      parameters:
  *          - name: id
  *            in: path
- *            description: Id do Usuário
+ *            description: Id do Drone
  *            required: true
  *            schema:
  *              type: string
@@ -139,11 +139,11 @@ routes.put('/users/:id',UserController.update);
   *          content:
  *            application/json:
  *              schema:
- *                  $ref: '#/components/schemas/User'
+ *                  $ref: '#/components/schemas/Drone'
  *       
  *        "500":
  *          description: Erro        
  */
-routes.delete('/users/:id', UserController.destroy);
+routes.delete('/drones/:id', DroneController.destroy);
 
 module.exports = routes
