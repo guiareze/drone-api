@@ -12,14 +12,17 @@ const mongoosePaginate = require('mongoose-paginate')
  *        properties:
  *          name:
  *              type: string
+ *          geolocation:
+ *              type: [number]
  *          temperature:
- *              type: integer
+ *              type: number
  *          humidity:
- *              type: integer
+ *              type: number
  *          tracking:
  *              type: boolean
  *        required:
  *          - name
+ *          - geolocation
  *          - temperature
  *          - humidity
  *          - tracking
@@ -28,6 +31,11 @@ const mongoosePaginate = require('mongoose-paginate')
 const DroneSchema = new mongoose.Schema({
     name:{
         type: String,
+        required: true,
+    },
+    geolocation:{
+        type: [Number],
+        index: '2d',
         required: true,
     },
     temperature:{
